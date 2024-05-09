@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const dotsContainer = document.querySelector(".dots-container");
 
   let index = 0;
+  let intervalId;
 
   function showImage(n) {
       index = (n + images.length) % images.length;
@@ -37,6 +38,16 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   }
 
+  function startAutoSlide() {
+      intervalId = setInterval(nextImage, 2500);
+      gallery.classList.add("auto");
+  }
+
+  function stopAutoSlide() {
+      clearInterval(intervalId);
+      gallery.classList.remove("auto");
+  }
+
   // Создание кружков
   images.forEach((_, i) => {
       const dot = document.createElement("span");
@@ -45,10 +56,19 @@ document.addEventListener("DOMContentLoaded", function() {
       dotsContainer.appendChild(dot);
   });
 
-  // Переключение картины по клику на стрелки
-  prevBtn.addEventListener("click", prevImage);
-  nextBtn.addEventListener("click", nextImage);
+  // Переключение фото по клику на стрелки
+  prevBtn.addEventListener("click", () => {
+      prevImage();
+      stopAutoSlide();
+  });
+  nextBtn.addEventListener("click", () => {
+      nextImage();
+      stopAutoSlide();
+  });
 
   // Начальная активация первого кружка
   updateDots();
+
+  // Запуск автоматического листания
+  startAutoSlide();
 });
