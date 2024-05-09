@@ -70,5 +70,5 @@ document.addEventListener("DOMContentLoaded", function() {
   updateDots();
 
   // Запуск автоматического листания
-  startAutoSlide();
+  // startAutoSlide();
 });
