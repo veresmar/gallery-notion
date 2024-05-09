@@ -5,18 +5,20 @@
   overflow: hidden;
 }
 
+/* ручное перелистывание */
 .gallery {
   display: flex;
-  transition: transform 0.3s ease; /* ручное перелистывание */
+  transition: transform 0.3s ease; 
 }
-.gallery.auto {
+/* автоматическое перелистывание */
+/* .gallery.auto {
   transition: transform 3.6s ease;
-   /* автоматическое перелистывание */
-}
+} */
 
 
 img {
   width: 100%;
+  height: auto;
   display: block;
 }
 

@@ -38,15 +38,15 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   }
 
-  function startAutoSlide() {
-      intervalId = setInterval(nextImage, 2500);
-      gallery.classList.add("auto");
-  }
+  // function startAutoSlide() {
+  //     intervalId = setInterval(nextImage, 2500);
+  //     gallery.classList.add("auto");
+  // }
 
-  function stopAutoSlide() {
-      clearInterval(intervalId);
-      gallery.classList.remove("auto");
-  }
+  // function stopAutoSlide() {
+  //     clearInterval(intervalId);
+  //     gallery.classList.remove("auto");
+  // }
 
   // Создание кружков
   images.forEach((_, i) => {
