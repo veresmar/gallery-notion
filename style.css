@@ -1,35 +1,22 @@
 .gallery-container {
   position: relative;
-  width: 100%;
-  margin: 0;
+  max-width: 800px;
+  margin: auto;
   overflow: hidden;
 }
 
-/* ручное перелистывание */
 .gallery {
-  display: flex;
-  transition: transform 0.3s ease; 
-}
-/* автоматическое перелистывание */
-/* .gallery.auto {
-  transition: transform 3.6s ease;
-} */
-
-
-img {
-  width: 100%;
-  height: auto;
-  display: block;
+  height: 400px; /* Высота галереи */
+  background-size: cover; /* Изображение будет занимать всю площадь блока */
+  background-position: center; /* Изображение будет располагаться по центру */
 }
 
-/* Стрелки вправо-влево */
 .prev, .next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  font-size: 2.5em;
-  opacity: .6;
+  font-size: 30px;
   user-select: none;
   z-index: 1;
 }
@@ -42,7 +29,6 @@ img {
   right: 0;
 }
 
-/* Точки */
 .dots-container {
   text-align: center;
   margin-top: 20px;
@@ -50,8 +36,8 @@ img {
 
 .dot {
   display: inline-block;
-  width: 13px;
-  height: 13px;
+  width: 10px;
+  height: 10px;
   background-color: #bbb;
   border-radius: 50%;
   margin: 0 5px;

@@ -1,21 +1,22 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const gallery = document.querySelector(".gallery");
-  const images = document.querySelectorAll(".gallery img");
-  const prevBtn = document.querySelector(".prev");
-  const nextBtn = document.querySelector(".next");
-  const dotsContainer = document.querySelector(".dots-container");
+  const galleryContainer = document.querySelector(".gallery-container");
+  const gallery = galleryContainer.querySelector(".gallery");
+  const prevBtn = galleryContainer.querySelector(".prev");
+  const nextBtn = galleryContainer.querySelector(".next");
+  const dotsContainer = galleryContainer.querySelector(".dots-container");
+  
+  const images = window.images || []; // Получаем массив изображений из глобальной области видимости
 
   let index = 0;
-  let intervalId;
 
   function showImage(n) {
       index = (n + images.length) % images.length;
-      gallery.style.transform = `translateX(-${index * 100}%)`;
+      gallery.style.backgroundImage = `url('${images[index]}')`;
       updateDots();
   }
 
   function updateDots() {
-      const dots = document.querySelectorAll(".dot");
+      const dots = dotsContainer.querySelectorAll(".dot");
       dots.forEach((dot, i) => {
           dot.classList.remove("active");
           if (i === index) {
@@ -38,16 +39,6 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   }
 
-  // function startAutoSlide() {
-  //     intervalId = setInterval(nextImage, 2500);
-  //     gallery.classList.add("auto");
-  // }
-
-  // function stopAutoSlide() {
-  //     clearInterval(intervalId);
-  //     gallery.classList.remove("auto");
-  // }
-
   // Создание кружков
   images.forEach((_, i) => {
       const dot = document.createElement("span");
@@ -56,19 +47,12 @@ document.addEventListener("DOMContentLoaded", function() {
       dotsContainer.appendChild(dot);
   });
 
-  // Переключение фото по клику на стрелки
-  prevBtn.addEventListener("click", () => {
-      prevImage();
-      stopAutoSlide();
-  });
-  nextBtn.addEventListener("click", () => {
-      nextImage();
-      stopAutoSlide();
-  });
+  // Переключение по клику на стрелки
+  prevBtn.addEventListener("click", prevImage);
+  nextBtn.addEventListener("click", nextImage);
 
   // Начальная активация первого кружка
   updateDots();
-
-  // Запуск автоматического листания
-  // startAutoSlide();
+  // Отображение первого изображения при загрузке страницы
+  showImage(0);
 });
