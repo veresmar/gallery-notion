@@ -1,13 +1,14 @@
 .gallery-container {
   position: relative;
-  max-width: 1450px;
+  max-width: 1200px;
   width: 100%;
   margin: auto;
   overflow: hidden;
 }
 
 .gallery {
-  height: 800px; 
+  min-height: 400px;
+  height: auto;
   background-size: cover; 
   background-position: center;
 }
