@@ -5,14 +5,21 @@ document.addEventListener("DOMContentLoaded", function() {
   const nextBtn = galleryContainer.querySelector(".next");
   const dotsContainer = galleryContainer.querySelector(".dots-container");
   
-  const images = window.images || []; // Получаем массив изображений из глобальной области видимости
+  // Получение массива изображений из глобальной области видимости
+  const images = window.images || []; 
 
   let index = 0;
+
+  function loadImage(n) {
+    const image = new Image()
+    image.src = images[n]
+  }
 
   function showImage(n) {
       index = (n + images.length) % images.length;
       gallery.style.backgroundImage = `url('${images[index]}')`;
       updateDots();
+      loadImage(n + 1)
   }
 
   function updateDots() {
@@ -31,12 +38,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function prevImage() {
       showImage(index - 1);
-  }
-
-  function setDotClickEvent(dot, i) {
-      dot.addEventListener("click", () => {
-          showImage(i);
-      });
   }
 
   // Создание кружков
