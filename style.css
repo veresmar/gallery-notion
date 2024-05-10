@@ -1,69 +1,75 @@
-.gallery-container {
-  position: relative;
-  max-width: 1200px;
-  width: 100%;
-  margin: auto;
-  overflow: hidden;
-}
+  .gallery-container {
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+  }
 
-.gallery {
-  height: 650px;
-  background-size: cover; 
-  background-position: center;
-}
+  .gallery {
+    height: 650px;
+    background-size: cover; 
+    background-position: center;
+  }
 
-.prev, .next {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  top: 50%;
-  width: 10%;
-  height: 100%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  font-size: 50px;
-  opacity: .6;
-  user-select: none;
-  z-index: 1;
-}
-@media screen and (max-width: 800px) {
   .prev, .next {
-    width: 23%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    top: 50%;
+    width: 10%;
+    height: 100%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 50px;
+    opacity: .6;
+    user-select: none;
+    z-index: 1;
   }
-}
+  @media screen and (max-width: 800px) {
+    .prev, .next {
+      width: 23%;
+    }
+  }
 
-.prev {
-  left: 0;
-  align-items: flex-start;
-}
+  .prev {
+    left: 0;
+    align-items: flex-start;
+  }
 
-.next {
-  right: 0;
-  align-items: flex-end;
-}
+  .next {
+    right: 0;
+    align-items: flex-end;
+  }
 
-.dots-container {
-  text-align: center;
-  margin-top: 20px;
-}
+  .dots-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
 
-.dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  background-color: #bbb;
-  border-radius: 50%;
-  margin: 0 5px;
-  cursor: pointer;
-}
-@media screen and (max-width: 800px) {
   .dot {
-    width: 15px;
-    height: 15px;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #bbb;
+    opacity: .6;
+    border-radius: 50%;
+    margin: 0 3px;
+    cursor: pointer;
   }
-}
 
-.active {
-  background-color: #717171;
-}
+  @media screen and (max-width: 800px) {
+    .dot {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  .active {
+    background-color: #bbb;
+    opacity: 1;
+  }
