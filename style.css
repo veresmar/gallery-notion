@@ -44,12 +44,12 @@
   }
 
   .prev {
-    left: 3px;
+    left: 29px;
     align-items: flex-start;
   }
 
   .next {
-    right: 3px;
+    right: 29px;
     align-items: flex-end;
   }
 
