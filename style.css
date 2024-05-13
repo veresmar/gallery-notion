@@ -19,8 +19,8 @@
     .gallery-container {
       margin: 0 auto;
     }
-    img {
-      max-width: 350px;
+     img {
+      width: auto;
       height: 818px;
     }
   }
@@ -49,16 +49,17 @@
   .prev > img,
   .next > img {
     width: 20px;
+    height: 35px;
     filter: drop-shadow(0px 0px 14px #191d1e);
   }
 
   .prev {
-    left: 29px;
+    left: 32px;
     align-items: flex-start;
   }
 
   .next {
-    right: 29px;
+    right: 32px;
     align-items: flex-end;
   }
 
