@@ -1,6 +1,5 @@
   .gallery-container {
     position: relative;
-    /* max-width: 1200px; */
     width: 100%;
     margin: auto;
     overflow: hidden;
@@ -14,6 +13,16 @@
   img {
     width: 100%;
     display: block;
+  }
+
+  @media screen and (max-width: 800px) {
+    .gallery-container {
+      margin: 0 auto;
+    }
+    img {
+      max-width: 350px;
+      height: 818px;
+    }
   }
 
   
