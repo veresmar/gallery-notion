@@ -1,17 +1,23 @@
   .gallery-container {
     position: relative;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     width: 100%;
     margin: auto;
     overflow: hidden;
   }
 
   .gallery {
-    height: 650px;
-    background-size: cover; 
-    background-position: center;
+    display: flex;
+    transition: transform 0.3s ease;
   }
 
+  img {
+    width: 100%;
+    display: block;
+  }
+
+  
+  /* СТРЕЛКИ */
   .prev, .next {
     position: absolute;
     display: flex;
@@ -23,32 +29,46 @@
     transform: translateY(-50%);
     cursor: pointer;
     font-size: 50px;
-    opacity: .6;
+    color: white;
+    opacity: 1;
     user-select: none;
     z-index: 1;
   }
+
+  
+
+  .prev > img,
+  .next > img {
+    width: 20px;
+    filter: drop-shadow(0px 0px 14px #191d1e);
+  }
+
+  .prev {
+    left: 3px;
+    align-items: flex-start;
+  }
+
+  .next {
+    right: 3px;
+    align-items: flex-end;
+  }
+
   @media screen and (max-width: 800px) {
     .prev, .next {
       width: 23%;
     }
   }
 
-  .prev {
-    left: 0;
-    align-items: flex-start;
-  }
 
-  .next {
-    right: 0;
-    align-items: flex-end;
-  }
-
+  /* ТОЧКИ */
   .dots-container {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
+    filter: drop-shadow(0px 0px 15px #000000);
+    
   }
 
   .dot {
@@ -63,9 +83,12 @@
   }
 
   @media screen and (max-width: 800px) {
+    .dots-container {
+      bottom: 5px;
+    }
     .dot {
-      width: 15px;
-      height: 15px;
+      width: 12px;
+      height: 12px;
     }
   }
 
